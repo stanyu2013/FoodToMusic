@@ -375,3 +375,24 @@ function capitalize(s)
 {
   return s[0].toUpperCase() + s.slice(1);
 }
+
+function getPhoneGapPath() { 
+  var path = window.location.pathname; 
+  var sizefilename = path.length - (path.lastIndexOf("/")+1); 
+  path = path.substr( path, path.length - sizefilename ); 
+  console.log('path');
+  console.log(path);
+  return path; 
+}
+
+function playAudio(){
+var mp3file = new Media(getPhoneGapPath()+"/res/romantic.mp3",
+        function() {
+            alert("playAudio():Audio Success");
+        },
+            function(err) {
+                alert(err);
+        }
+        );
+      mp3file.play();
+}
